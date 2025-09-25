@@ -77,7 +77,7 @@ body::before {
 }
 .mid-container {
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center; 
     height: 100vh;
     text-align: center;
@@ -88,8 +88,6 @@ body::before {
     max-width: 600px;
     margin: 20px;
     padding: 20px;
-    border-radius: 10px;
-
     h2{
       font-size: 3rem;
       margin-bottom: 1rem;
@@ -111,15 +109,9 @@ body::before {
 }
 
 .carousel-item {
+  position: relative;
   height: auto;
   width: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  text-align: center;
-  padding: 20px;
   animation: fadeInOut 15s linear infinite;
 }
 .carousel-item img {
@@ -127,24 +119,101 @@ body::before {
   height: 400px;
   object-fit: cover;
   border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  border-radius: 20px;
+}
+.carousel-item:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  img {
+    opacity: 0.8;
+    transition: opacity 0.5s ease-in-out;
+  }
+}
+
+.carousel-item h4,
+.carousel-item p {
+  position: absolute;
+  margin: 5px 10px; 
+  padding: 15px;
+  bottom: 10px;
+  color: var(--secondary-color);
+  text-align: center; 
+  background-color: var(--primary-color);
+  border-radius: 20px;
+}
+.carousel-item p {
+opacity: 0;
+}
+
+.carousel-item:hover p {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+.carousel-item:hover h4{
+  opacity: 0;
+}
+
+.carousel-item .name {
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  bottom: auto;
+  font-size: 1.5rem;
+}
+
+.carousel-item .rating {
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  left: 0%;
 }
 
 .cta {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        min-width: 300px;
+        height: 80px;
+        margin-right: 20px;
+        margin-left: 10px;
+        background-color: rgba(255, 255, 255, 0.423);
+        font-weight: bold;
+        font-size: 1.5rem;
+        border: none;
+        border-radius: 5px;
+        color:white;
+
+        div:first-child {
+            width: 70%;
+        }
+        div:last-child {
+            width: 33%;
+            height: 100%;
+            padding-right: ;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            background-color: var(--secondary-color);
+        }
+        svg {
+            height: 100%;
+            width: 30px;
+            color: rgba(0, 0, 0, 0.488);
+        }
 }
 
 .search-bar {
-    margin-top: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 700%);
+    height: 100px;
+    width: 1000px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.423);
+    border-radius: 5px;
 }
 
 @keyframes movePaperPlane {
